@@ -1,5 +1,7 @@
 # MNIST Digit Classification using CNN (Deep Learning Project)
 
+---
+
 ## 📌 Problem Statement
 Handwritten digit classification using Deep Learning Convolutional Neural Networks (CNN) on the MNIST dataset.
 
@@ -7,63 +9,75 @@ Handwritten digit classification using Deep Learning Convolutional Neural Networ
 
 ## 📊 Dataset
 - Dataset: MNIST
-- Source: Built-in dataset from TensorFlow / PyTorch
+- Source: Built-in dataset (PyTorch / TensorFlow)
 - 60,000 training images + 10,000 test images
-- Image size: 28×28 grayscale digits (0–9)
+- Image size: 28×28 grayscale (digits 0–9)
 
 ---
 
 ## 🧹 Data Preprocessing
-- Normalization: Pixel values scaled to range [0, 1]
-- Reshaping: (28, 28, 1) for CNN input
-- Train/Validation split (used for monitoring training performance)
+- Normalization: Pixel values scaled to [-1, 1]
+- Tensor conversion using ToTensor()
+- Train/Validation split (83% / 17%)
+- Data augmentation: Random rotation applied
+
+---
+
+## 🖼️ Data Visualization
+- Sample MNIST images displayed from dataset
+- Helps understand input data distribution before training
 
 ---
 
 ## 🧠 Model Architectures
 
 ### 🔹 Model A: Basic CNN
-- Convolutional layers (Conv2D)
+- Simple convolutional neural network
 - ReLU activation
 - MaxPooling layers
-- Fully connected Dense layers
+- Fully connected layers
 
 ---
 
-### 🔹 Model B: Improved CNN
+### 🔹 Model B: CNN + BatchNorm + Dropout
 - Convolutional layers
 - Batch Normalization
 - Dropout regularization
-- Fully connected Dense layers
+- Improved generalization
+
+---
+
+### 🔹 Model C: Deep CNN (Experimental)
+- Deeper CNN architecture
+- Additional convolutional layers
+- Batch Normalization
+- Dropout
+- SGD optimizer instead of Adam
+- Enhanced feature extraction
 
 ---
 
 ## ⚙️ Training Setup
 - Loss Function: CrossEntropyLoss
-- Optimizer: Adam
-- Metrics: Accuracy, Loss
-- Epochs: 5
 - Batch Size: 64
+- Epochs: 5
+
+### Optimizers:
+- Model A: Adam (lr = 0.001)
+- Model B: Adam (lr = 0.001)
+- Model C: SGD (lr = 0.01, momentum = 0.9)
 
 ---
 
 ## 🧪 Experimentation
-Two experiments were conducted:
-- Model A: Basic CNN architecture
-- Model B: CNN + BatchNorm + Dropout
+Three experiments were conducted by varying:
+- Model architecture (simple vs deep CNN)
+- Regularization techniques (Dropout, BatchNorm)
+- Optimizers (Adam vs SGD)
 
 ---
 
-## 📈 Results Comparison
-
-| Model     | Accuracy | Loss   |
-|-----------|----------|--------|
-| Model A   | 98.97%   | 0.0339 |
-| Model B   | 99.11%   | 0.0334 |
-
----
-
-## 📊 Evaluation Metrics
+## 📈 Evaluation Metrics
 - Accuracy
 - Loss
 - Validation Accuracy
@@ -71,10 +85,21 @@ Two experiments were conducted:
 
 ---
 
+## 📊 Results Comparison
+
+| Model     | Accuracy | Loss   |
+|-----------|----------|--------|
+| Model A   | XX%      | XX     |
+| Model B   | XX%      | XX     |
+| Model C   | XX%      | XX     |
+
+---
+
 ## 📉 Visualizations
 The project includes:
 - Training vs Validation Accuracy curves
 - Training vs Validation Loss curves
+- Sample MNIST image visualization
 
 ---
 
@@ -82,10 +107,10 @@ The project includes:
 
 ### Option 1: Google Colab (Recommended)
 1. Open Google Colab
-2. Upload the notebook
+2. Upload notebook
 3. Run all cells
 
-### Option 2: Local Environment
+### Option 2: Local Machine
 ```bash
 pip install torch torchvision matplotlib pandas
 python main.py
